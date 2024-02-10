@@ -27,7 +27,7 @@
     </head>
 
         <!-- Start Navbar Area -->
-        <div class="navbar-area">
+        <div class="navbar-area navbar-with-position-relative">
             <div class="luvion-responsive-nav">
                 <div class="container">
                     <div class="luvion-responsive-menu">
@@ -53,13 +53,14 @@
                             <ul class="navbar-nav">
                                 <li class="nav-item"><a href="index.html" class="nav-link">Home</a>
                                 </li>
-
+                                <li class="nav-item"><a href="faq.html" class="nav-link">Constitution</a>
+                                </li>
                                 <li class="nav-item"><a href="team.html" class="nav-link">Our Team</a></li>
-
-                                <!-- <li class="nav-item"><a href="faq.html" class="nav-link">Constitution</a>
-                                </li> -->
-                                <li class="nav-item"><a href="http://financialstand.club/user/" class="nav-link">Join</a></li>
+                                <li class="nav-item"><a href="http://financialstand.club/user/" class="nav-link">Sign Up</a></li>
                             </ul>
+                            <div class="others-options">
+                              <a href="http://financialstand.club/user/" class="login-btn"><i class="flaticon-user"></i> Log In</a>
+                            </div>
                         </div>
                     </nav>
                 </div>
@@ -180,6 +181,42 @@
         </section>
         <!-- End Team Area -->
 
+        <!-- our members  -->
+        <section class="features-area ptb-70 bg-f6f4f8">
+            <div class="section-title">
+                <h2>Our Club Members</h2>
+                <div class="bar"></div>
+                <p>Meet the valuable members of our club, each contributing to our shared goals and community.</p>
+            </div>
+            <div class="row" id="members-list">
+            </div>
+        </section>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                fetch('http://financialstand.club:9000/users/all_users')
+                    .then(response => response.json())
+                    .then(data => {
+                        const membersContainer = document.getElementById('members-list');
+                        data.data.forEach(member => {
+                            const memberFullName = `${member.first_name} ${member.last_name}`;
+                            membersContainer.innerHTML += `
+                                <div class="col-lg-3 col-sm-6 col-md-6">
+                                    <div class="single-features-box">
+                                        <div class="icon">
+                                            <i class="flaticon-user"></i>
+                                        </div>
+                                        <h3>${memberFullName}</h3>
+                                        <p>Email: ${member.email}</p>
+                                        <p>Status: ${member.status}</p>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                    })
+                    .catch(error => console.error('Error fetching member data:', error));
+            });
+        </script>
+        <!-- end our members -->
         <!-- Start Account Create Area -->
         <section class="account-create-area">
             <div class="container">
