@@ -1262,7 +1262,7 @@ Main Banner Area CSS
   position: relative;
   padding-top: 200px;
   padding-bottom: 250px;
-  background-image: url(../img/banner-image/banner-bg.jpg);
+  background-image: url(../img/kcu2.jpeg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3642,10 +3642,10 @@ Page Title Area CSS
   background-size: 200%;
 }
 .page-title-area.item-bg1 {
-  background-image: url(../img/page-title-bg1.jpg);
+  background-image: url(../img/kcu1.jpeg);
 }
 .page-title-area.item-bg2 {
-  background-image: url(../img/page-title-bg2.jpg);
+  background-image: url(../img/kcu2.jpeg);
 }
 
 .page-title-content {
