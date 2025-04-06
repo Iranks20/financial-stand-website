@@ -534,5 +534,28 @@
         <script src="assets/js/contact-form-script.js"></script>
         <script src="assets/js/jquery.ajaxchimp.min.js"></script>
         <script src="assets/js/main.js"></script>
-    
+        <script>
+            function checkLoginStatus() {
+                const isLoggedIn = localStorage.getItem('login') === 'true';
+                const loginDiv = document.querySelector('.others-options');
+                
+                if (isLoggedIn) {
+                    loginDiv.innerHTML = `
+                        <a href="http://financialstand.club/user/" class="login-btn">
+                            <i class="flaticon-user"></i> My Account
+                        </a>
+                    `;
+                } else {
+                    loginDiv.innerHTML = `
+                        <a href="http://financialstand.club/user/" class="login-btn">
+                            <i class="flaticon-user"></i> Log In
+                        </a>
+                    `;
+                }
+            }
+            document.addEventListener('DOMContentLoaded', function() {
+                checkLoginStatus();
+            });
+        </script>
+    </body>
 </html>
